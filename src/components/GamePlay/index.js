@@ -15,7 +15,6 @@ export default function GamePlay() {
   const [position, setPosition] = useState(2);
 
   function checkKey(key) {
-    console.log(key);
     if (position === 2) {
       if (key === "left" || key === "a") setPosition(1);
       if (key === "right" || key === "d") setPosition(3);

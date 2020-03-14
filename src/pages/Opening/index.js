@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Sound from "react-sound";
-import { Windows } from "./styles";
+import { Container, Button, Windows } from "./styles";
 import soundfile from "../../assets/sounds/startupsound.wav";
 
 import history from "../../services/history";
+import { FaPowerOff } from "react-icons/fa";
 
 export default function Opening() {
   const [play, setPlay] = useState(false);
@@ -13,20 +14,19 @@ export default function Opening() {
 
   const start = () => setPlay(true);
 
-  useEffect(() => {
-    start();
-  }, []);
-
   return (
     <>
-      <Windows />
+      <Container isPlaying={play}>
+        <Button onClick={start}>
+          <FaPowerOff size="10em"></FaPowerOff>
+        </Button>
+      </Container>
+      <Windows isPlaying={play} />
       <Sound
         url={soundfile}
         autoLoad
         onLoading={() => setPlay(false)}
-        onLoad={() => setPlay(true)}
-        // playStatus={play ? "PLAYING" : "STOPPED"}
-        playStatus={"PLAYING"}
+        playStatus={play ? "PLAYING" : "STOPPED"}
         onFinishedPlaying={handleFinish}
       />
     </>

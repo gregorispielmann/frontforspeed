@@ -29,8 +29,8 @@ export default function Menu() {
             <span>📁</span> My Github
           </ListItem>
           <Divider />
-          <ListItem disabled>
-            <span>🔙</span> Logout
+          <ListItem as="a" href="/">
+            <span></span> Turn off
           </ListItem>
         </List>
       )}
